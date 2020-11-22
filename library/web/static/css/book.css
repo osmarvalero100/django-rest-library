@@ -1,0 +1,29 @@
+#msg_not_products {
+    background-color: #f4f4f4;
+    margin-top: 20px;
+}
+#msg_not_products div div:last-child {
+    padding-top: 10%;
+}
+#msg_not_products div div:last-child h2 {
+    padding: 12px;
+}
+#books .card {
+    margin-top: 20px;
+}
+#books .card img,
+#books .card .description {
+    max-height: 290px;
+}
+
+#books .card .description {
+    display: none;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+@media (max-width: 600px) {
+    #books .card {
+      margin: 0 auto;
+    }
+}

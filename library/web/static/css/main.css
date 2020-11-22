@@ -1,0 +1,8 @@
+header{
+    padding: 10px;
+}
+header a,
+header a:hover {
+    text-decoration: none;
+    color: black;
+}

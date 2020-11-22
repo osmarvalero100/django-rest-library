@@ -1,0 +1,22 @@
+{% extends 'web/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/book.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div data-id="{{book_id}}" id="book_detail" class="row">
+        <div class="col-md-5 col-sm-12 img-book">
+            
+        </div>
+        <div class="col-md-7 col-sm-12 book-desc">
+            
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'js/book.js' %}"></script>
+{% endblock %}
