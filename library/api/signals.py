@@ -5,7 +5,6 @@ from .models import Book
 
 @receiver(post_save, sender=Book)
 def send_mail_author(sender, instance, created, **kwargs):
-    book_title = instance.name
 
     if instance.accepted ==  True:
         subject = 'Activate Your MySite Account'
@@ -14,4 +13,4 @@ def send_mail_author(sender, instance, created, **kwargs):
             'domain': 'localhost:8000',
         })
 
-    send_mail_author_by_book_register.delay(subject, message, settings.EMAIL_HOST_USER, [email_author])
+    send_mail_author_by_book_register.delay(subject, message, settings.EMAIL_HOST_USER, [instance.author.email])
