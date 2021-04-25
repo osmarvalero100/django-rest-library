@@ -13,7 +13,17 @@ class AuthorViewset(viewsets.ModelViewSet):
 class BookViewset(viewsets.ModelViewSet):
     queryset = models.Book.objects.all()
     serializer_class = serializers.BookSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
+
+    def get_queryset(self):
+        books = models.Book.objects.all()
+
+        name = self.request.GET.get('name')
+
+        if name:
+            books = books.filter(name__contains=name)
+            
+        return books
 
 
 class EditorialViewset(viewsets.ModelViewSet):

@@ -33,8 +33,8 @@ class Book(models.Model):
     isbn = models.CharField(max_length=20)
     number_pages = models.IntegerField()
     language = models.CharField(max_length=50, default="Español")
-    author = models.ForeignKey(Author, related_name='books_author', on_delete=models.CASCADE)
-    editorial = models.ForeignKey(Editorial, related_name='books_editorial', on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, related_name='author_books', on_delete=models.CASCADE)
+    editorial = models.ForeignKey(Editorial, related_name='editorial_books', on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
 
     def __str__(self):

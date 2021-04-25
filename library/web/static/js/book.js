@@ -29,16 +29,23 @@ async function buildLibrary() {
 async function showBookDetail() {
     let book_id = $('#book_detail').data('id')
     let book = await fetchData('api/books/'+book_id)
+    console .log(book)
     let cover = (book.cover == '')? '/media/default.png' : book.cover
     let book_detail = `<div>
                             <h1>${book.name}</h1>
                             <p class="text-justify">${book.description}</p>
                             <hr>
                             <details>
-                                <summary>N° páginas: ${book.number_pages}</summary>
+                                <summary><strong>Autor:</strong> ${book.author.name}</summary>
                             </details>
                             <details>
-                                <summary>Idioma: ${book.language}</summary>
+                                <summary><strong>Editorial:</strong> ${book.editorial.name}</summary>
+                            </details>
+                            <details>
+                                <summary><strong>N° páginas:</strong> ${book.number_pages}</summary>
+                            </details>
+                            <details>
+                                <summary><strong>Idioma:</strong> ${book.language}</summary>
                             </details>
                         </div>`
 
